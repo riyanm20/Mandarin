@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosa Kata Mandarin</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .word-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const vocabularies = [
+    { hanzi: '周末', pinyin: 'zhōu mò', meaning: 'Weekend' },
+    { hanzi: '聼', pinyin: 'tīng', meaning: 'To listen' },
+    { hanzi: '音樂', pinyin: 'yīn yuè', meaning: 'Music' },
+    { hanzi: '運動', pinyin: 'yùn dòng', meaning: 'Exercise' },
+    { hanzi: '打', pinyin: 'dǎ', meaning: 'To play (sports)' },
+    { hanzi: '網球', pinyin: 'wǎng qiú', meaning: 'Tennis' },
+    { hanzi: '棒球', pinyin: 'bàng qiú', meaning: 'Baseball' },
+    { hanzi: '和', pinyin: 'hé', meaning: 'And' },
+    { hanzi: '游泳', pinyin: 'yóu yǒng', meaning: 'Swimming' },
+    { hanzi: '常', pinyin: 'cháng', meaning: 'Often' },
+    { hanzi: '籃球', pinyin: 'lán qiú', meaning: 'Basketball' },
+    { hanzi: '也', pinyin: 'yě', meaning: 'Also' },
+    { hanzi: '踢', pinyin: 'tī', meaning: 'To kick' },
+    { hanzi: '足球', pinyin: 'zú qiú', meaning: 'Football' },
+    { hanzi: '覺得', pinyin: 'jué de', meaning: 'To feel' },
+    { hanzi: '好玩', pinyin: 'hǎo wán', meaning: 'Fun' },
+    { hanzi: '明天', pinyin: 'míng tiān', meaning: 'Tomorrow' },
+    { hanzi: '早上', pinyin: 'zǎo shang', meaning: 'Morning' },
+    { hanzi: '去', pinyin: 'qù', meaning: 'To go' },
+    { hanzi: '怎麽樣', pinyin: 'zěn me yàng', meaning: 'How about it?' },
+    { hanzi: '啊', pinyin: 'a', meaning: 'Ah' },
+    { hanzi: '做什麽', pinyin: 'zuò shén me', meaning: 'Do what' },
+    { hanzi: '好啊', pinyin: 'hǎo a', meaning: 'Good' },
+    { hanzi: '今天', pinyin: 'jīn tiān', meaning: 'Today' },
+    { hanzi: '晚上', pinyin: 'wǎn shang', meaning: 'Evening' },
+    { hanzi: '看', pinyin: 'kàn', meaning: 'To watch' },
+    { hanzi: '電影', pinyin: 'diàn yǐng', meaning: 'Movie' },
+    { hanzi: '妳', pinyin: 'nǐ', meaning: 'You (female)' },
+    { hanzi: '想', pinyin: 'xiǎng', meaning: 'To want' },
+    { hanzi: '還是', pinyin: 'hái shì', meaning: 'Or' },
+    { hanzi: '吧', pinyin: 'ba', meaning: 'Ba' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can' },
+    { hanzi: '學', pinyin: 'xué', meaning: 'To learn' },
+    { hanzi: '中文', pinyin: 'Zhōng wén', meaning: 'Chinese language' },
+    { hanzi: '一起', pinyin: 'yī qǐ', meaning: 'Together' },
+    { hanzi: '吃', pinyin: 'chī', meaning: 'To eat' },
+    { hanzi: '晚飯', pinyin: 'wǎn fàn', meaning: 'Dinner' },
+    { hanzi: '菜', pinyin: 'cài', meaning: 'Dish' },
+    { hanzi: '越南', pinyin: 'Yuènán', meaning: 'Vietnam' },
+    { hanzi: '好不好', pinyin: 'hǎo bù hǎo', meaning: 'Is it good?' },
+    { hanzi: '一共', pinyin: 'yī gòng', meaning: 'In total' },
+    { hanzi: '多少', pinyin: 'duō shǎo', meaning: 'How much' },
+    { hanzi: '錢', pinyin: 'qián', meaning: 'Money' },
+    { hanzi: '老闆', pinyin: 'lǎo bǎn', meaning: 'Boss' },
+    { hanzi: '買', pinyin: 'mǎi', meaning: 'To buy' },
+    { hanzi: '杯', pinyin: 'bēi', meaning: 'Cup' },
+    { hanzi: '熱', pinyin: 'rè', meaning: 'Hot' },
+    { hanzi: '包子', pinyin: 'bāo zi', meaning: 'Steamed bun' },
+    { hanzi: '大', pinyin: 'dà', meaning: 'Big' },
+    { hanzi: '中', pinyin: 'zhōng', meaning: 'Middle' },
+    { hanzi: '小', pinyin: 'xiǎo', meaning: 'Small' },
+    { hanzi: '幫', pinyin: 'bāng', meaning: 'Help' },
+    { hanzi: '微波', pinyin: 'wēi bō', meaning: 'Microwave' },
+    { hanzi: '百', pinyin: 'bǎi', meaning: 'Hundred' },
+    { hanzi: '塊', pinyin: 'kuài', meaning: 'Piece' },
+    { hanzi: '好的', pinyin: 'hǎo de', meaning: 'Okay' },
+    { hanzi: '外帶', pinyin: 'wài dài', meaning: 'Takeout' },
+    { hanzi: '内用', pinyin: 'nèi yòng', meaning: 'Dine-in' },
+    { hanzi: '支', pinyin: 'zhī', meaning: 'Measure Word for Stick-like Objects' },
+    { hanzi: '新', pinyin: 'xīn', meaning: 'New' },
+    { hanzi: '手機', pinyin: 'shǒu jī', meaning: 'Mobile Phone' },
+    { hanzi: '太', pinyin: 'tài', meaning: 'Too' },
+    { hanzi: '舊', pinyin: 'jiù', meaning: 'Old' },
+    { hanzi: '了', pinyin: 'le', meaning: 'Particle Indicating Completed Action' },
+    { hanzi: '種', pinyin: 'zhǒng', meaning: 'Kind' },
+    { hanzi: '能', pinyin: 'néng', meaning: 'Can' },
+    { hanzi: '上網', pinyin: 'shàng wǎng', meaning: 'Surf the Internet' },
+    { hanzi: '那', pinyin: 'nà', meaning: 'That' },
+    { hanzi: '貴', pinyin: 'guì', meaning: 'Expensive' },
+    { hanzi: '賣', pinyin: 'mài', meaning: 'Sell' },
+    { hanzi: '便宜', pinyin: 'pián yi', meaning: 'Cheap' },
+    { hanzi: '要', pinyin: 'yào', meaning: 'Want' },
+    { hanzi: '萬', pinyin: 'wàn', meaning: 'Ten Thousand' },
+    { hanzi: '千', pinyin: 'qiān', meaning: 'Thousand' },
+    { hanzi: '爲什麽', pinyin: 'wèi shén me', meaning: 'Why' },
+    // Tambahkan kosa kata lainnya sesuai kebutuhan
+  ];
+
+  function createWordBox(word) {
+    const box = document.createElement('div');
+    box.classList.add('word-box');
+    box.textContent = word.hanzi;
+
+    box.addEventListener('click', function () {
+      if (box.textContent === word.hanzi) {
+        box.textContent = `${word.pinyin} - ${word.meaning}`;
+      } else {
+        box.textContent = word.hanzi;
+      }
+    });
+
+    return box;
+  }
+
+  function renderVocabularies() {
+    const vocabContainer = document.body;
+
+    // Membuat kotak untuk setiap kosa kata
+    const wordBoxes = vocabularies.map(createWordBox);
+    wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+
+    // Tombol acak untuk mengacak posisi kosa kata
+    const shuffleButton = document.createElement('button');
+    shuffleButton.textContent = 'Acak';
+    shuffleButton.addEventListener('click', function () {
+      // Mengacak array wordBoxes
+      wordBoxes.sort(() => Math.random() - 0.5);
+      // Menghapus semua kotak dari container
+      vocabContainer.innerHTML = '';
+      // Menambahkan kotak-kotak yang sudah diacak
+      wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+      // Menambahkan kembali tombol "Acak"
+      vocabContainer.appendChild(shuffleButton);
+    });
+
+    vocabContainer.appendChild(shuffleButton);
+  }
+
+  // Menjalankan fungsi renderVocabularies saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', renderVocabularies);
+</script>
+
+</body>
+</html>

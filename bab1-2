@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosa Kata Mandarin</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .word-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const vocabularies = [
+    { hanzi: '你', pinyin: 'nǐ', meaning: 'You' },
+    { hanzi: '來', pinyin: 'lái', meaning: 'Come' },
+    { hanzi: '是', pinyin: 'shì', meaning: 'Is' },
+    { hanzi: '小姐', pinyin: 'xiǎo jiě', meaning: 'Miss' },
+    { hanzi: '我們', pinyin: 'wǒmen', meaning: 'We' },
+    { hanzi: '這', pinyin: 'zhè', meaning: 'This' },
+    { hanzi: '先生', pinyin: 'xiānsheng', meaning: 'Mister' },
+    { hanzi: '好', pinyin: 'hǎo', meaning: 'Good' },
+    { hanzi: '姓', pinyin: 'xìng', meaning: 'Surname' },
+    { hanzi: '叫', pinyin: 'jiào', meaning: 'To be called' },
+    { hanzi: '你們', pinyin: 'nǐmen', meaning: 'You all' },
+    { hanzi: '台灣', pinyin: 'Táiwān', meaning: 'Taiwan' },
+    { hanzi: '歡迎', pinyin: 'huānyíng', meaning: 'Welcome' },
+    { hanzi: '請問', pinyin: 'qǐng wèn', meaning: 'May I ask' },
+    { hanzi: '是的', pinyin: 'shì de', meaning: 'Yes' },
+    { hanzi: '謝謝', pinyin: 'xiè xiè', meaning: 'Thank you' },
+    { hanzi: '不客氣', pinyin: 'bù kè qì', meaning: 'You`re welcome' },
+    { hanzi: '你好', pinyin: 'nǐ hǎo', meaning: 'Hello' },
+    { hanzi: '請', pinyin: 'qǐng', meaning: 'Please' },
+    { hanzi: '喝', pinyin: 'hē', meaning: 'To drink' },
+    { hanzi: '茶', pinyin: 'chá', meaning: 'Tea' },
+    { hanzi: '很', pinyin: 'hěn', meaning: 'Very' },
+    { hanzi: '好喝', pinyin: 'hǎo hē', meaning: 'Delicious' },
+    { hanzi: '什麽', pinyin: 'shén me', meaning: 'What' },
+    { hanzi: '人', pinyin: 'rén', meaning: 'Person' },
+    { hanzi: '喜歡', pinyin: 'xǐ huān', meaning: 'To like' },
+    { hanzi: '呢', pinyin: 'ne', meaning: 'What about' },
+    { hanzi: '他', pinyin: 'tā', meaning: 'He' },
+    { hanzi: '她', pinyin: 'tā', meaning: 'She' },
+    { hanzi: '不', pinyin: 'bù', meaning: 'Not' },
+    { hanzi: '哪', pinyin: 'nǎ', meaning: 'Which' },
+    { hanzi: '要', pinyin: 'yào', meaning: 'To want' },
+    { hanzi: '咖啡', pinyin: 'kā fēi', meaning: 'Coffee' },
+    { hanzi: '烏龍茶', pinyin: 'wū lóng chá', meaning: 'Oolong tea' },
+    { hanzi: '日本', pinyin: 'Rì běn', meaning: 'Japan' },
+    { hanzi: '美國', pinyin: 'Měi guó', meaning: 'United States' },
+    { hanzi: '對不起', pinyin: 'duì bù qǐ', meaning: 'Sorry' },
+    { hanzi: '哪國', pinyin: 'nǎ guó', meaning: 'Which country' },
+    { hanzi: '的', pinyin: 'de', meaning: 'Of' },
+    { hanzi: '家人', pinyin: 'jiā rén', meaning: 'Family' },
+    { hanzi: '家', pinyin: 'jiā', meaning: 'Home' },
+    { hanzi: '漂亮', pinyin: 'piào liang', meaning: 'Beautiful' },
+    { hanzi: '房子', pinyin: 'fáng zi', meaning: 'House' },
+    { hanzi: '坐', pinyin: 'zuò', meaning: 'To sit' },
+    { hanzi: '有', pinyin: 'yǒu', meaning: 'To have' },
+    { hanzi: '多', pinyin: 'duō', meaning: 'Many' },
+    { hanzi: '照片', pinyin: 'zhào piàn', meaning: 'Photo' },
+    { hanzi: '都', pinyin: 'dōu', meaning: 'All' },
+    { hanzi: '照相', pinyin: 'zhào xiàng', meaning: 'To take photos' },
+    { hanzi: '張', pinyin: 'zhāng', meaning: 'Measure word for flat objects' },
+    { hanzi: '好看', pinyin: 'hǎo kàn', meaning: 'Good-looking' },
+    { hanzi: '誰', pinyin: 'shéi', meaning: 'Who' },
+    { hanzi: '姐姐', pinyin: 'jiě jiě', meaning: 'Elder sister' },
+    { hanzi: '妹妹', pinyin: 'mèi mei', meaning: 'Younger sister' },
+    { hanzi: '爸爸', pinyin: 'bà bà', meaning: 'Dad' },
+    { hanzi: '媽媽', pinyin: 'mā mā', meaning: 'Mom' },
+    { hanzi: '請進', pinyin: 'qǐng jìn', meaning: 'Please come in' },
+    { hanzi: '伯母', pinyin: 'bó mǔ', meaning: 'Aunt' },
+    { hanzi: '您', pinyin: 'nín', meaning: 'You (polite)' },
+    { hanzi: '名字', pinyin: 'míng zì', meaning: 'Name' },
+    { hanzi: '書', pinyin: 'shū', meaning: 'Book' },
+    { hanzi: '哥哥', pinyin: 'gē gē', meaning: 'Elder brother' },
+    { hanzi: '老師', pinyin: 'lǎo shī', meaning: 'Teacher' },
+    { hanzi: '看書', pinyin: 'kàn shū', meaning: 'To read a book' },
+    { hanzi: '幾', pinyin: 'jǐ', meaning: 'How many' },
+    { hanzi: '個', pinyin: 'gè', meaning: 'Measure word for general use' },
+    { hanzi: '沒', pinyin: 'méi', meaning: 'Not' },
+    { hanzi: '兄弟', pinyin: 'xiōng dì', meaning: 'Brothers' },
+    { hanzi: '姐妹', pinyin: 'jiě mèi', meaning: 'Sisters' },
+    { hanzi: '五', pinyin: 'wǔ', meaning: 'Five' },
+    { hanzi: '兩', pinyin: 'liǎng', meaning: 'Two' },
+    // Tambahkan kosa kata lainnya sesuai kebutuhan
+  ];
+
+  function createWordBox(word) {
+    const box = document.createElement('div');
+    box.classList.add('word-box');
+    box.textContent = word.hanzi;
+
+    box.addEventListener('click', function () {
+      if (box.textContent === word.hanzi) {
+        box.textContent = `${word.pinyin} - ${word.meaning}`;
+      } else {
+        box.textContent = word.hanzi;
+      }
+    });
+
+    return box;
+  }
+
+  function renderVocabularies() {
+    const vocabContainer = document.body;
+
+    // Membuat kotak untuk setiap kosa kata
+    const wordBoxes = vocabularies.map(createWordBox);
+    wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+
+    // Tombol acak untuk mengacak posisi kosa kata
+    const shuffleButton = document.createElement('button');
+    shuffleButton.textContent = 'Acak';
+    shuffleButton.addEventListener('click', function () {
+      // Mengacak array wordBoxes
+      wordBoxes.sort(() => Math.random() - 0.5);
+      // Menghapus semua kotak dari container
+      vocabContainer.innerHTML = '';
+      // Menambahkan kotak-kotak yang sudah diacak
+      wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+      // Menambahkan kembali tombol "Acak"
+      vocabContainer.appendChild(shuffleButton);
+    });
+
+    vocabContainer.appendChild(shuffleButton);
+  }
+
+  // Menjalankan fungsi renderVocabularies saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', renderVocabularies);
+</script>
+
+</body>
+</html>

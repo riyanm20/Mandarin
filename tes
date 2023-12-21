@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Halaman</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #eee;
+      padding: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 15px;
+    }
+    .word-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Menu Halaman</h1>
+</header>
+
+<nav>
+  <a href="bab1-2">Bab 1-2</a>
+  <a href="bab3-4">Bab 3-4</a>
+  <a href="halaman3.html">Bab 3</a>
+  <a href="halaman4.html">Bab 4</a>
+  <a href="halaman5.html">Bab 5</a>
+  <a href="halaman6.html">Bab 6</a>
+  <a href="halaman7.html">Bab 7</a>
+  <a href="halaman8.html">Bab 8</a>
+  <a href="all">Semua</a>
+
+</nav>
+
+<script>
+  const vocabularies = [
+    { hanzi: '你', pinyin: 'nǐ', meaning: 'You' },
+    { hanzi: '來', pinyin: 'lái', meaning: 'Come' },
+    { hanzi: '是', pinyin: 'shì', meaning: 'Is' },
+    { hanzi: '小姐', pinyin: 'xiǎo jiě', meaning: 'Miss' },
+    { hanzi: '我們', pinyin: 'wǒmen', meaning: 'We' },
+    { hanzi: '這', pinyin: 'zhè', meaning: 'This' },
+    { hanzi: '先生', pinyin: 'xiānsheng', meaning: 'Mister' },
+    { hanzi: '好', pinyin: 'hǎo', meaning: 'Good' },
+    { hanzi: '姓', pinyin: 'xìng', meaning: 'Surname' },
+    { hanzi: '叫', pinyin: 'jiào', meaning: 'To be called' },
+    { hanzi: '你們', pinyin: 'nǐmen', meaning: 'You all' },
+    { hanzi: '台灣', pinyin: 'Táiwān', meaning: 'Taiwan' },
+    { hanzi: '歡迎', pinyin: 'huānyíng', meaning: 'Welcome' },
+    { hanzi: '請問', pinyin: 'qǐng wèn', meaning: 'May I ask' },
+    { hanzi: '是的', pinyin: 'shì de', meaning: 'Yes' },
+    { hanzi: '謝謝', pinyin: 'xiè xiè', meaning: 'Thank you' },
+    { hanzi: '不客氣', pinyin: 'bù kè qì', meaning: 'You`re welcome' },
+    { hanzi: '你好', pinyin: 'nǐ hǎo', meaning: 'Hello' },
+    { hanzi: '請', pinyin: 'qǐng', meaning: 'Please' },
+    { hanzi: '喝', pinyin: 'hē', meaning: 'To drink' },
+    { hanzi: '茶', pinyin: 'chá', meaning: 'Tea' },
+    { hanzi: '很', pinyin: 'hěn', meaning: 'Very' },
+    { hanzi: '好喝', pinyin: 'hǎo hē', meaning: 'Delicious' },
+    { hanzi: '什麽', pinyin: 'shén me', meaning: 'What' },
+    { hanzi: '人', pinyin: 'rén', meaning: 'Person' },
+    { hanzi: '喜歡', pinyin: 'xǐ huān', meaning: 'To like' },
+    { hanzi: '呢', pinyin: 'ne', meaning: 'What about' },
+    { hanzi: '他', pinyin: 'tā', meaning: 'He' },
+    { hanzi: '她', pinyin: 'tā', meaning: 'She' },
+    { hanzi: '不', pinyin: 'bù', meaning: 'Not' },
+    { hanzi: '哪', pinyin: 'nǎ', meaning: 'Which' },
+    { hanzi: '要', pinyin: 'yào', meaning: 'To want' },
+    { hanzi: '咖啡', pinyin: 'kā fēi', meaning: 'Coffee' },
+    { hanzi: '烏龍茶', pinyin: 'wū lóng chá', meaning: 'Oolong tea' },
+    { hanzi: '日本', pinyin: 'Rì běn', meaning: 'Japan' },
+    { hanzi: '美國', pinyin: 'Měi guó', meaning: 'United States' },
+    { hanzi: '對不起', pinyin: 'duì bù qǐ', meaning: 'Sorry' },
+    { hanzi: '哪國', pinyin: 'nǎ guó', meaning: 'Which country' },
+    { hanzi: '的', pinyin: 'de', meaning: 'Of' },
+    { hanzi: '家人', pinyin: 'jiā rén', meaning: 'Family' },
+    { hanzi: '家', pinyin: 'jiā', meaning: 'Home' },
+    { hanzi: '漂亮', pinyin: 'piào liang', meaning: 'Beautiful' },
+    { hanzi: '房子', pinyin: 'fáng zi', meaning: 'House' },
+    { hanzi: '坐', pinyin: 'zuò', meaning: 'To sit' },
+    { hanzi: '有', pinyin: 'yǒu', meaning: 'To have' },
+    { hanzi: '多', pinyin: 'duō', meaning: 'Many' },
+    { hanzi: '照片', pinyin: 'zhào piàn', meaning: 'Photo' },
+    { hanzi: '都', pinyin: 'dōu', meaning: 'All' },
+    { hanzi: '照相', pinyin: 'zhào xiàng', meaning: 'To take photos' },
+    { hanzi: '張', pinyin: 'zhāng', meaning: 'Measure word for flat objects' },
+    { hanzi: '好看', pinyin: 'hǎo kàn', meaning: 'Good-looking' },
+    { hanzi: '誰', pinyin: 'shéi', meaning: 'Who' },
+    { hanzi: '姐姐', pinyin: 'jiě jiě', meaning: 'Elder sister' },
+    { hanzi: '妹妹', pinyin: 'mèi mei', meaning: 'Younger sister' },
+    { hanzi: '爸爸', pinyin: 'bà bà', meaning: 'Dad' },
+    { hanzi: '媽媽', pinyin: 'mā mā', meaning: 'Mom' },
+    { hanzi: '請進', pinyin: 'qǐng jìn', meaning: 'Please come in' },
+    { hanzi: '伯母', pinyin: 'bó mǔ', meaning: 'Aunt' },
+    { hanzi: '您', pinyin: 'nín', meaning: 'You (polite)' },
+    { hanzi: '名字', pinyin: 'míng zì', meaning: 'Name' },
+    { hanzi: '書', pinyin: 'shū', meaning: 'Book' },
+    { hanzi: '哥哥', pinyin: 'gē gē', meaning: 'Elder brother' },
+    { hanzi: '老師', pinyin: 'lǎo shī', meaning: 'Teacher' },
+    { hanzi: '看書', pinyin: 'kàn shū', meaning: 'To read a book' },
+    { hanzi: '幾', pinyin: 'jǐ', meaning: 'How many' },
+    { hanzi: '個', pinyin: 'gè', meaning: 'Measure word for general use' },
+    { hanzi: '沒', pinyin: 'méi', meaning: 'Not' },
+    { hanzi: '兄弟', pinyin: 'xiōng dì', meaning: 'Brothers' },
+    { hanzi: '姐妹', pinyin: 'jiě mèi', meaning: 'Sisters' },
+    { hanzi: '五', pinyin: 'wǔ', meaning: 'Five' },
+    { hanzi: '兩', pinyin: 'liǎng', meaning: 'Two' },
+    { hanzi: '周末', pinyin: 'zhōu mò', meaning: 'Weekend' },
+    { hanzi: '聼', pinyin: 'tīng', meaning: 'To listen' },
+    { hanzi: '音樂', pinyin: 'yīn yuè', meaning: 'Music' },
+    { hanzi: '運動', pinyin: 'yùn dòng', meaning: 'Exercise' },
+    { hanzi: '打', pinyin: 'dǎ', meaning: 'To play (sports)' },
+    { hanzi: '網球', pinyin: 'wǎng qiú', meaning: 'Tennis' },
+    { hanzi: '棒球', pinyin: 'bàng qiú', meaning: 'Baseball' },
+    { hanzi: '和', pinyin: 'hé', meaning: 'And' },
+    { hanzi: '游泳', pinyin: 'yóu yǒng', meaning: 'Swimming' },
+    { hanzi: '常', pinyin: 'cháng', meaning: 'Often' },
+    { hanzi: '籃球', pinyin: 'lán qiú', meaning: 'Basketball' },
+    { hanzi: '也', pinyin: 'yě', meaning: 'Also' },
+    { hanzi: '踢', pinyin: 'tī', meaning: 'To kick' },
+    { hanzi: '足球', pinyin: 'zú qiú', meaning: 'Football' },
+    { hanzi: '覺得', pinyin: 'jué de', meaning: 'To feel' },
+    { hanzi: '好玩', pinyin: 'hǎo wán', meaning: 'Fun' },
+    { hanzi: '明天', pinyin: 'míng tiān', meaning: 'Tomorrow' },
+    { hanzi: '早上', pinyin: 'zǎo shang', meaning: 'Morning' },
+    { hanzi: '去', pinyin: 'qù', meaning: 'To go' },
+    { hanzi: '怎麽樣', pinyin: 'zěn me yàng', meaning: 'How about it?' },
+    { hanzi: '啊', pinyin: 'a', meaning: 'Ah' },
+    { hanzi: '做什麽', pinyin: 'zuò shén me', meaning: 'Do what' },
+    { hanzi: '好啊', pinyin: 'hǎo a', meaning: 'Good' },
+    { hanzi: '今天', pinyin: 'jīn tiān', meaning: 'Today' },
+    { hanzi: '晚上', pinyin: 'wǎn shang', meaning: 'Evening' },
+    { hanzi: '看', pinyin: 'kàn', meaning: 'To watch' },
+    { hanzi: '電影', pinyin: 'diàn yǐng', meaning: 'Movie' },
+    { hanzi: '妳', pinyin: 'nǐ', meaning: 'You (female)' },
+    { hanzi: '想', pinyin: 'xiǎng', meaning: 'To want' },
+    { hanzi: '還是', pinyin: 'hái shì', meaning: 'Or' },
+    { hanzi: '吧', pinyin: 'ba', meaning: 'Ba' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can' },
+    { hanzi: '學', pinyin: 'xué', meaning: 'To learn' },
+    { hanzi: '中文', pinyin: 'Zhōng wén', meaning: 'Chinese language' },
+    { hanzi: '一起', pinyin: 'yī qǐ', meaning: 'Together' },
+    { hanzi: '吃', pinyin: 'chī', meaning: 'To eat' },
+    { hanzi: '晚飯', pinyin: 'wǎn fàn', meaning: 'Dinner' },
+    { hanzi: '菜', pinyin: 'cài', meaning: 'Dish' },
+    { hanzi: '越南', pinyin: 'Yuènán', meaning: 'Vietnam' },
+    { hanzi: '好不好', pinyin: 'hǎo bù hǎo', meaning: 'Is it good?' },
+    { hanzi: '一共', pinyin: 'yī gòng', meaning: 'In total' },
+    { hanzi: '多少', pinyin: 'duō shǎo', meaning: 'How much' },
+    { hanzi: '錢', pinyin: 'qián', meaning: 'Money' },
+    { hanzi: '老闆', pinyin: 'lǎo bǎn', meaning: 'Boss' },
+    { hanzi: '買', pinyin: 'mǎi', meaning: 'To buy' },
+    { hanzi: '杯', pinyin: 'bēi', meaning: 'Cup' },
+    { hanzi: '熱', pinyin: 'rè', meaning: 'Hot' },
+    { hanzi: '包子', pinyin: 'bāo zi', meaning: 'Steamed bun' },
+    { hanzi: '大', pinyin: 'dà', meaning: 'Big' },
+    { hanzi: '中', pinyin: 'zhōng', meaning: 'Middle' },
+    { hanzi: '小', pinyin: 'xiǎo', meaning: 'Small' },
+    { hanzi: '幫', pinyin: 'bāng', meaning: 'Help' },
+    { hanzi: '微波', pinyin: 'wēi bō', meaning: 'Microwave' },
+    { hanzi: '百', pinyin: 'bǎi', meaning: 'Hundred' },
+    { hanzi: '塊', pinyin: 'kuài', meaning: 'Piece' },
+    { hanzi: '好的', pinyin: 'hǎo de', meaning: 'Okay' },
+    { hanzi: '外帶', pinyin: 'wài dài', meaning: 'Takeout' },
+    { hanzi: '内用', pinyin: 'nèi yòng', meaning: 'Dine-in' },
+    { hanzi: '支', pinyin: 'zhī', meaning: 'Measure Word for Stick-like Objects' },
+    { hanzi: '新', pinyin: 'xīn', meaning: 'New' },
+    { hanzi: '手機', pinyin: 'shǒu jī', meaning: 'Mobile Phone' },
+    { hanzi: '太', pinyin: 'tài', meaning: 'Too' },
+    { hanzi: '舊', pinyin: 'jiù', meaning: 'Old' },
+    { hanzi: '了', pinyin: 'le', meaning: 'Particle Indicating Completed Action' },
+    { hanzi: '種', pinyin: 'zhǒng', meaning: 'Kind' },
+    { hanzi: '能', pinyin: 'néng', meaning: 'Can' },
+    { hanzi: '上網', pinyin: 'shàng wǎng', meaning: 'Surf the Internet' },
+    { hanzi: '那', pinyin: 'nà', meaning: 'That' },
+    { hanzi: '貴', pinyin: 'guì', meaning: 'Expensive' },
+    { hanzi: '賣', pinyin: 'mài', meaning: 'Sell' },
+    { hanzi: '便宜', pinyin: 'pián yi', meaning: 'Cheap' },
+    { hanzi: '要', pinyin: 'yào', meaning: 'Want' },
+    { hanzi: '萬', pinyin: 'wàn', meaning: 'Ten Thousand' },
+    { hanzi: '千', pinyin: 'qiān', meaning: 'Thousand' },
+    { hanzi: '爲什麽', pinyin: 'wèi shén me', meaning: 'Why' },
+    { hanzi: '牛肉', pinyin: 'niú ròu', meaning: 'Beef' },
+    { hanzi: '麵', pinyin: 'miàn', meaning: 'Noodles' },
+    { hanzi: '真', pinyin: 'zhēn', meaning: 'Real' },
+    { hanzi: '好吃', pinyin: 'hǎo chī', meaning: 'Delicious' },
+    { hanzi: '說', pinyin: 'shuō', meaning: 'Say' },
+    { hanzi: '少', pinyin: 'shǎo', meaning: 'Few' },
+    { hanzi: '有名', pinyin: 'yǒu míng', meaning: 'Famous' },
+    { hanzi: '小吃', pinyin: 'xiǎo chī', meaning: 'Snack' },
+    { hanzi: '最', pinyin: 'zuì', meaning: 'Most' },
+    { hanzi: '湯', pinyin: 'tāng', meaning: 'Soup' },
+    { hanzi: '這麽', pinyin: 'zhè me', meaning: 'So' },
+    { hanzi: '知道', pinyin: 'zhī dào', meaning: 'Know' },
+    { hanzi: '店', pinyin: 'diàn', meaning: 'Shop' },
+    { hanzi: '一定', pinyin: 'yī dìng', meaning: 'Definitely' },
+    { hanzi: '點', pinyin: 'diǎn', meaning: 'Order' },
+    { hanzi: '碗', pinyin: 'wǎn', meaning: 'Bowl' },
+    { hanzi: '是啊', pinyin: 'shì a', meaning: 'Yes' },
+    { hanzi: '小籠包', pinyin: 'xiǎo lóng bāo', meaning: 'Xiaolongbao' },
+    { hanzi: '臭豆腐', pinyin: 'chòu dòu fu', meaning: 'Stinky Tofu' },
+    { hanzi: '太好了', pinyin: 'tài hǎo le', meaning: 'Great' },
+    { hanzi: '昨天', pinyin: 'zuó tiān', meaning: 'Yesterday' },
+    { hanzi: '餐廳', pinyin: 'cān tīng', meaning: 'Restaurant' },
+    { hanzi: '可是', pinyin: 'kě shì', meaning: 'But' },
+    { hanzi: '辣', pinyin: 'là', meaning: 'Spicy' },
+    { hanzi: '怕', pinyin: 'pà', meaning: 'Fear' },
+    { hanzi: '所以', pinyin: 'suǒ yǐ', meaning: 'So' },
+    { hanzi: '自己', pinyin: 'zì jǐ', meaning: 'Self' },
+    { hanzi: '做飯', pinyin: 'zuò fàn', meaning: 'Cook' },
+    { hanzi: '得', pinyin: 'dé', meaning: 'Must' },
+    { hanzi: '會', pinyin: 'huì', meaning: 'Can' },
+    { hanzi: '甜點', pinyin: 'tián diǎn', meaning: 'Dessert' },
+    { hanzi: '不錯', pinyin: 'bú cuò', meaning: 'Not Bad' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can' },
+    { hanzi: '教', pinyin: 'jiāo', meaning: 'Teach' },
+    { hanzi: '到', pinyin: 'dào', meaning: 'Arrive' },
+    { hanzi: '有一點', pinyin: 'yǒu yī diǎn', meaning: 'A Little' },
+    { hanzi: '不好', pinyin: 'bù hǎo', meaning: 'Not Good' },
+    { hanzi: '他們', pinyin: 'tā men', meaning: 'They' },
+    { hanzi: '學校', pinyin: 'xué xiào', meaning: 'School' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At' },
+    { hanzi: '山上', pinyin: 'shān shàng', meaning: 'On the Mountain' },
+    { hanzi: '哪裡', pinyin: 'nǎ lǐ', meaning: 'Where' },
+    { hanzi: '遠', pinyin: 'yuǎn', meaning: 'Far' },
+    { hanzi: '那裡', pinyin: 'nà lǐ', meaning: 'There' },
+    { hanzi: '風景', pinyin: 'fēng jǐng', meaning: 'Scenery' },
+    { hanzi: '美', pinyin: 'měi', meaning: 'Beautiful' },
+    { hanzi: '前面', pinyin: 'qián miàn', meaning: 'In Front' },
+    { hanzi: '海', pinyin: 'hǎi', meaning: 'Sea' },
+    { hanzi: '後面', pinyin: 'hòu miàn', meaning: 'Behind' },
+    { hanzi: '山', pinyin: 'shān', meaning: 'Mountain' },
+    { hanzi: '真的', pinyin: 'zhēn de', meaning: 'Really' },
+    { hanzi: '地方', pinyin: 'dì fāng', meaning: 'Place' },
+    { hanzi: '現在', pinyin: 'xiàn zài', meaning: 'Now' },
+    { hanzi: '附近', pinyin: 'fù jìn', meaning: 'Nearby' },
+    { hanzi: '樓下', pinyin: 'lóu xià', meaning: 'Downstairs' },
+    { hanzi: '找', pinyin: 'zhǎo', meaning: 'Look for' },
+    { hanzi: '朋友', pinyin: 'péng yǒu', meaning: 'Friend' },
+    { hanzi: '上課', pinyin: 'shàng kè', meaning: 'Attend Class' },
+    { hanzi: '花蓮', pinyin: 'huā lián', meaning: 'Hualien' },
+    { hanzi: '聽説', pinyin: 'tīng shuō', meaning: 'Hear' },
+    { hanzi: '近', pinyin: 'jìn', meaning: 'Near' },
+    { hanzi: '方便', pinyin: 'fāng biàn', meaning: 'Convenient' },
+    { hanzi: '這裡', pinyin: 'zhè lǐ', meaning: 'Here' },
+    { hanzi: '學生', pinyin: 'xué shēng', meaning: 'Student' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At' },
+    { hanzi: '東西', pinyin: 'dōng xī', meaning: 'Things' },
+    { hanzi: '外面', pinyin: 'wài miàn', meaning: 'Outside' },
+    { hanzi: '裡面', pinyin: 'lǐ miàn', meaning: 'Inside' },
+    { hanzi: '商店', pinyin: 'shāng diàn', meaning: 'Store' },
+    { hanzi: '吃飯', pinyin: 'chī fàn', meaning: 'Eat' },
+    { hanzi: '宿舍', pinyin: 'sù shè', meaning: 'Dormitory' },
+    { hanzi: '樓', pinyin: 'lóu', meaning: 'Floor' },
+    { hanzi: '棟', pinyin: 'dòng', meaning: 'Building' },
+    { hanzi: '大樓', pinyin: 'dà lóu', meaning: 'Skyscraper' },
+    { hanzi: '圖書館', pinyin: 'tú shū guǎn', meaning: 'Library' },
+    { hanzi: '旁邊', pinyin: 'páng biān', meaning: 'Next to' },
+    { hanzi: '教室', pinyin: 'jiào shì', meaning: 'Classroom' },
+    { hanzi: '游泳池', pinyin: 'yóu yǒng chí', meaning: 'Swimming Pool' },
+    { hanzi: '點', pinyin: 'diǎn', meaning: 'Order' },
+    { hanzi: 'KTV', pinyin: 'KTV', meaning: 'Karaoke' },
+    { hanzi: '唱歌', pinyin: 'chàng gē', meaning: 'Sing' },
+    { hanzi: '分', pinyin: 'fēn', meaning: 'Minute' },
+    { hanzi: '見面', pinyin: 'jiàn miàn', meaning: 'Meet' },
+    { hanzi: '從', pinyin: 'cóng', meaning: 'From' },
+    { hanzi: '中午', pinyin: 'zhōng wǔ', meaning: 'Noon' },
+    { hanzi: '得', pinyin: 'dé', meaning: 'Must' },
+    { hanzi: '銀行', pinyin: 'yín háng', meaning: 'Bank' },
+    { hanzi: '時候', pinyin: 'shí hou', meaning: 'Time' },
+    { hanzi: '後天', pinyin: 'hòu tiān', meaning: 'The Day After Tomorrow' },
+    { hanzi: '大安', pinyin: 'dà ān', meaning: 'Da`an' },
+    { hanzi: '下次', pinyin: 'xià cì', meaning: 'Next Time' },
+    { hanzi: '沒問題', pinyin: 'méi wèn tí', meaning: 'No Problem' },
+    { hanzi: '對了', pinyin: 'duì le', meaning: 'Correct' },
+    { hanzi: '有空', pinyin: 'yǒu kòng', meaning: 'Free, available' },
+    { hanzi: '再見', pinyin: 'zài jiàn', meaning: 'Goodbye' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At, in' },
+    { hanzi: '午餐', pinyin: 'wǔ cān', meaning: 'Lunch' },
+    { hanzi: '剛', pinyin: 'gāng', meaning: 'Just' },
+    { hanzi: '下課', pinyin: 'xià kè', meaning: 'Class is over' },
+    { hanzi: '下午', pinyin: 'xià wǔ', meaning: 'Afternoon' },
+    { hanzi: '半', pinyin: 'bàn', meaning: 'Half' },
+    { hanzi: '比賽', pinyin: 'bǐ sài', meaning: 'Competition' },
+    { hanzi: '結束', pinyin: 'jié shù', meaning: 'End, finish' },
+    { hanzi: '最近', pinyin: 'zuì jìn', meaning: 'Recently' },
+    { hanzi: '忙', pinyin: 'máng', meaning: 'Busy' },
+    { hanzi: '每', pinyin: 'měi', meaning: 'Every' },
+    { hanzi: '天', pinyin: 'tiān', meaning: 'Day' },
+    { hanzi: '書法', pinyin: 'shū fǎ', meaning: 'Calligraphy' },
+    { hanzi: '課', pinyin: 'kè', meaning: 'Class' },
+    { hanzi: '開始', pinyin: 'kāi shǐ', meaning: 'Start' },
+    { hanzi: '字', pinyin: 'zì', meaning: 'Character' },
+    { hanzi: '寫', pinyin: 'xiě', meaning: 'Write' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can, may' },
+    { hanzi: '問', pinyin: 'wèn', meaning: 'Ask' },
+    { hanzi: '等一下', pinyin: 'děng yī xià', meaning: 'Wait a moment' },
+    { hanzi: '有事', pinyin: 'yǒu shì', meaning: 'Busy (have something to do)' },
+    { hanzi: '有意思', pinyin: 'yǒu yì si', meaning: 'Interesting' },
+    { hanzi: '坐', pinyin: 'zuò', meaning: 'Sit, take' },
+    { hanzi: '火車', pinyin: 'huǒ chē', meaning: 'Train' },
+    { hanzi: '跟', pinyin: 'gēn', meaning: 'With' },
+    { hanzi: '玩', pinyin: 'wán', meaning: 'Play' },
+    { hanzi: '怎麽', pinyin: 'zěn me', meaning: 'How' },
+    { hanzi: '慢', pinyin: 'màn', meaning: 'Slow' },
+    { hanzi: '鐘頭', pinyin: 'zhōng tóu', meaning: 'Hour' },
+    { hanzi: '比較', pinyin: 'bǐ jiào', meaning: 'Comparison' },
+    { hanzi: '快', pinyin: 'kuài', meaning: 'Fast' },
+    { hanzi: '車票', pinyin: 'chē piào', meaning: 'Train ticket' },
+    { hanzi: '非常', pinyin: 'fēi cháng', meaning: 'Very' },
+    { hanzi: '但是', pinyin: 'dàn shì', meaning: 'But' },
+    { hanzi: '又', pinyin: 'yòu', meaning: 'Again' },
+    { hanzi: '舒服', pinyin: 'shū fu', meaning: 'Comfortable' },
+    { hanzi: '站', pinyin: 'zhàn', meaning: 'Stand' },
+    { hanzi: '或是', pinyin: 'huò shì', meaning: 'Or' },
+    { hanzi: '臺南', pinyin: 'tái nán', meaning: 'Tainan' },
+    { hanzi: '高鐵', pinyin: 'gāo tiě', meaning: 'High-speed rail' },
+    { hanzi: '網路上', pinyin: 'wǎng lù shàng', meaning: 'On the internet' },
+    { hanzi: '便利商店', pinyin: 'biàn lì shāng diàn', meaning: 'Convenience store' },
+    { hanzi: '同學', pinyin: 'tóng xué', meaning: 'Classmate' },
+    { hanzi: '參觀', pinyin: 'cān guān', meaning: 'Visit' },
+    { hanzi: '古代', pinyin: 'gǔ dài', meaning: 'Ancient times' },
+    { hanzi: '騎', pinyin: 'qí', meaning: 'Ride' },
+    { hanzi: '機車', pinyin: 'jī chē', meaning: 'Motorcycle' },
+    { hanzi: '載', pinyin: 'zài', meaning: 'Carry' },
+    { hanzi: '捷運', pinyin: 'jié yùn', meaning: 'MRT, subway' },
+    { hanzi: '比', pinyin: 'bǐ', meaning: 'Compared to' },
+    { hanzi: '故宮博物院', pinyin: 'gù gōng bó wù yuàn', meaning: 'National Palace Museum' },
+    { hanzi: '中國', pinyin: 'zhōng guó', meaning: 'China' },
+    { hanzi: '公共汽車', pinyin: 'gōng gòng qì chē', meaning: 'Bus' },
+    { hanzi: '不行', pinyin: 'bù xíng', meaning: 'Not okay' },
+    { hanzi: '計程車', pinyin: 'jì chéng chē', meaning: 'Taxi' },
+    { hanzi: '差不多', pinyin: 'chà bù duō', meaning: 'Almost' },
+    // Tambahkan kosa kata lainnya sesuai kebutuhan
+  ];
+
+  function createWordBox(word) {
+    const box = document.createElement('div');
+    box.classList.add('word-box');
+    box.textContent = word.hanzi;
+
+    box.addEventListener('click', function () {
+      if (box.textContent === word.hanzi) {
+        box.textContent = `${word.pinyin} - ${word.meaning}`;
+      } else {
+        box.textContent = word.hanzi;
+      }
+    });
+
+    return box;
+  }
+
+  function renderVocabularies() {
+    const vocabContainer = document.body;
+
+    // Membuat kotak untuk setiap kosa kata
+    const wordBoxes = vocabularies.map(createWordBox);
+    wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+
+    // Tombol acak untuk mengacak posisi kosa kata
+    const shuffleButton = document.createElement('button');
+    shuffleButton.textContent = 'Acak';
+    shuffleButton.addEventListener('click', function () {
+      // Mengacak array wordBoxes
+      wordBoxes.sort(() => Math.random() - 0.5);
+      // Menghapus semua kotak dari container
+      vocabContainer.innerHTML = '';
+      // Menambahkan kotak-kotak yang sudah diacak
+      wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+      // Menambahkan kembali tombol "Acak"
+      vocabContainer.appendChild(shuffleButton);
+    });
+
+    vocabContainer.appendChild(shuffleButton);
+  }
+
+  // Menjalankan fungsi renderVocabularies saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', renderVocabularies);
+</script>
+
+</body>
+</html>
