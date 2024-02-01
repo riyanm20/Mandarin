@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosa Kata Mandarin</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .word-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const vocabularies = [
+    { hanzi: '牛肉', pinyin: 'niú ròu', meaning: 'Beef' },
+    { hanzi: '麵', pinyin: 'miàn', meaning: 'Noodles' },
+    { hanzi: '真', pinyin: 'zhēn', meaning: 'Real' },
+    { hanzi: '好吃', pinyin: 'hǎo chī', meaning: 'Delicious' },
+    { hanzi: '說', pinyin: 'shuō', meaning: 'Say' },
+    { hanzi: '少', pinyin: 'shǎo', meaning: 'Few' },
+    { hanzi: '有名', pinyin: 'yǒu míng', meaning: 'Famous' },
+    { hanzi: '小吃', pinyin: 'xiǎo chī', meaning: 'Snack' },
+    { hanzi: '最', pinyin: 'zuì', meaning: 'Most' },
+    { hanzi: '湯', pinyin: 'tāng', meaning: 'Soup' },
+    { hanzi: '這麽', pinyin: 'zhè me', meaning: 'So' },
+    { hanzi: '知道', pinyin: 'zhī dào', meaning: 'Know' },
+    { hanzi: '店', pinyin: 'diàn', meaning: 'Shop' },
+    { hanzi: '一定', pinyin: 'yī dìng', meaning: 'Definitely' },
+    { hanzi: '點', pinyin: 'diǎn', meaning: 'Order' },
+    { hanzi: '碗', pinyin: 'wǎn', meaning: 'Bowl' },
+    { hanzi: '是啊', pinyin: 'shì a', meaning: 'Yes' },
+    { hanzi: '小籠包', pinyin: 'xiǎo lóng bāo', meaning: 'Xiaolongbao' },
+    { hanzi: '臭豆腐', pinyin: 'chòu dòu fu', meaning: 'Stinky Tofu' },
+    { hanzi: '太好了', pinyin: 'tài hǎo le', meaning: 'Great' },
+    { hanzi: '昨天', pinyin: 'zuó tiān', meaning: 'Yesterday' },
+    { hanzi: '餐廳', pinyin: 'cān tīng', meaning: 'Restaurant' },
+    { hanzi: '可是', pinyin: 'kě shì', meaning: 'But' },
+    { hanzi: '辣', pinyin: 'là', meaning: 'Spicy' },
+    { hanzi: '怕', pinyin: 'pà', meaning: 'Fear' },
+    { hanzi: '所以', pinyin: 'suǒ yǐ', meaning: 'So' },
+    { hanzi: '自己', pinyin: 'zì jǐ', meaning: 'Self' },
+    { hanzi: '做飯', pinyin: 'zuò fàn', meaning: 'Cook' },
+    { hanzi: '得', pinyin: 'dé', meaning: 'Must' },
+    { hanzi: '會', pinyin: 'huì', meaning: 'Can' },
+    { hanzi: '甜點', pinyin: 'tián diǎn', meaning: 'Dessert' },
+    { hanzi: '不錯', pinyin: 'bú cuò', meaning: 'Not Bad' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can' },
+    { hanzi: '教', pinyin: 'jiāo', meaning: 'Teach' },
+    { hanzi: '到', pinyin: 'dào', meaning: 'Arrive' },
+    { hanzi: '有一點', pinyin: 'yǒu yī diǎn', meaning: 'A Little' },
+    { hanzi: '不好', pinyin: 'bù hǎo', meaning: 'Not Good' },
+    { hanzi: '他們', pinyin: 'tā men', meaning: 'They' },
+    { hanzi: '學校', pinyin: 'xué xiào', meaning: 'School' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At' },
+    { hanzi: '山上', pinyin: 'shān shàng', meaning: 'On the Mountain' },
+    { hanzi: '哪裡', pinyin: 'nǎ lǐ', meaning: 'Where' },
+    { hanzi: '遠', pinyin: 'yuǎn', meaning: 'Far' },
+    { hanzi: '那裡', pinyin: 'nà lǐ', meaning: 'There' },
+    { hanzi: '風景', pinyin: 'fēng jǐng', meaning: 'Scenery' },
+    { hanzi: '美', pinyin: 'měi', meaning: 'Beautiful' },
+    { hanzi: '前面', pinyin: 'qián miàn', meaning: 'In Front' },
+    { hanzi: '海', pinyin: 'hǎi', meaning: 'Sea' },
+    { hanzi: '後面', pinyin: 'hòu miàn', meaning: 'Behind' },
+    { hanzi: '山', pinyin: 'shān', meaning: 'Mountain' },
+    { hanzi: '真的', pinyin: 'zhēn de', meaning: 'Really' },
+    { hanzi: '地方', pinyin: 'dì fāng', meaning: 'Place' },
+    { hanzi: '現在', pinyin: 'xiàn zài', meaning: 'Now' },
+    { hanzi: '附近', pinyin: 'fù jìn', meaning: 'Nearby' },
+    { hanzi: '樓下', pinyin: 'lóu xià', meaning: 'Downstairs' },
+    { hanzi: '找', pinyin: 'zhǎo', meaning: 'Look for' },
+    { hanzi: '朋友', pinyin: 'péng yǒu', meaning: 'Friend' },
+    { hanzi: '上課', pinyin: 'shàng kè', meaning: 'Attend Class' },
+    { hanzi: '花蓮', pinyin: 'huā lián', meaning: 'Hualien' },
+    { hanzi: '聽説', pinyin: 'tīng shuō', meaning: 'Hear' },
+    { hanzi: '近', pinyin: 'jìn', meaning: 'Near' },
+    { hanzi: '方便', pinyin: 'fāng biàn', meaning: 'Convenient' },
+    { hanzi: '這裡', pinyin: 'zhè lǐ', meaning: 'Here' },
+    { hanzi: '學生', pinyin: 'xué shēng', meaning: 'Student' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At' },
+    { hanzi: '東西', pinyin: 'dōng xī', meaning: 'Things' },
+    { hanzi: '外面', pinyin: 'wài miàn', meaning: 'Outside' },
+    { hanzi: '裡面', pinyin: 'lǐ miàn', meaning: 'Inside' },
+    { hanzi: '商店', pinyin: 'shāng diàn', meaning: 'Store' },
+    { hanzi: '吃飯', pinyin: 'chī fàn', meaning: 'Eat' },
+    { hanzi: '宿舍', pinyin: 'sù shè', meaning: 'Dormitory' },
+    { hanzi: '樓', pinyin: 'lóu', meaning: 'Floor' },
+    { hanzi: '棟', pinyin: 'dòng', meaning: 'Building' },
+    { hanzi: '大樓', pinyin: 'dà lóu', meaning: 'Skyscraper' },
+    { hanzi: '圖書館', pinyin: 'tú shū guǎn', meaning: 'Library' },
+    { hanzi: '旁邊', pinyin: 'páng biān', meaning: 'Next to' },
+    { hanzi: '教室', pinyin: 'jiào shì', meaning: 'Classroom' },
+    { hanzi: '游泳池', pinyin: 'yóu yǒng chí', meaning: 'Swimming Pool' },
+    // Tambahkan kosa kata lainnya sesuai kebutuhan
+  ];
+
+  function createWordBox(word) {
+    const box = document.createElement('div');
+    box.classList.add('word-box');
+    box.textContent = word.hanzi;
+
+    box.addEventListener('click', function () {
+      if (box.textContent === word.hanzi) {
+        box.textContent = `${word.pinyin} - ${word.meaning}`;
+      } else {
+        box.textContent = word.hanzi;
+      }
+    });
+
+    return box;
+  }
+
+  function renderVocabularies() {
+    const vocabContainer = document.body;
+
+    // Membuat kotak untuk setiap kosa kata
+    const wordBoxes = vocabularies.map(createWordBox);
+    wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+
+    // Tombol acak untuk mengacak posisi kosa kata
+    const shuffleButton = document.createElement('button');
+    shuffleButton.textContent = 'Acak';
+    shuffleButton.addEventListener('click', function () {
+      // Mengacak array wordBoxes
+      wordBoxes.sort(() => Math.random() - 0.5);
+      // Menghapus semua kotak dari container
+      vocabContainer.innerHTML = '';
+      // Menambahkan kotak-kotak yang sudah diacak
+      wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+      // Menambahkan kembali tombol "Acak"
+      vocabContainer.appendChild(shuffleButton);
+    });
+
+    vocabContainer.appendChild(shuffleButton);
+  }
+
+  // Menjalankan fungsi renderVocabularies saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', renderVocabularies);
+</script>
+
+</body>
+</html>
