@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosa Kata Mandarin</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .word-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const vocabularies = [
+    { hanzi: '點', pinyin: 'diǎn', meaning: 'Order' },
+    { hanzi: 'KTV', pinyin: 'KTV', meaning: 'Karaoke' },
+    { hanzi: '唱歌', pinyin: 'chàng gē', meaning: 'Sing' },
+    { hanzi: '分', pinyin: 'fēn', meaning: 'Minute' },
+    { hanzi: '見面', pinyin: 'jiàn miàn', meaning: 'Meet' },
+    { hanzi: '從', pinyin: 'cóng', meaning: 'From' },
+    { hanzi: '中午', pinyin: 'zhōng wǔ', meaning: 'Noon' },
+    { hanzi: '得', pinyin: 'dé', meaning: 'Must' },
+    { hanzi: '銀行', pinyin: 'yín háng', meaning: 'Bank' },
+    { hanzi: '時候', pinyin: 'shí hou', meaning: 'Time' },
+    { hanzi: '後天', pinyin: 'hòu tiān', meaning: 'The Day After Tomorrow' },
+    { hanzi: '大安', pinyin: 'dà ān', meaning: 'Da`an' },
+    { hanzi: '下次', pinyin: 'xià cì', meaning: 'Next Time' },
+    { hanzi: '沒問題', pinyin: 'méi wèn tí', meaning: 'No Problem' },
+    { hanzi: '對了', pinyin: 'duì le', meaning: 'Correct' },
+    { hanzi: '有空', pinyin: 'yǒu kòng', meaning: 'Free, available' },
+    { hanzi: '再見', pinyin: 'zài jiàn', meaning: 'Goodbye' },
+    { hanzi: '在', pinyin: 'zài', meaning: 'At, in' },
+    { hanzi: '午餐', pinyin: 'wǔ cān', meaning: 'Lunch' },
+    { hanzi: '剛', pinyin: 'gāng', meaning: 'Just' },
+    { hanzi: '下課', pinyin: 'xià kè', meaning: 'Class is over' },
+    { hanzi: '下午', pinyin: 'xià wǔ', meaning: 'Afternoon' },
+    { hanzi: '半', pinyin: 'bàn', meaning: 'Half' },
+    { hanzi: '比賽', pinyin: 'bǐ sài', meaning: 'Competition' },
+    { hanzi: '結束', pinyin: 'jié shù', meaning: 'End, finish' },
+    { hanzi: '最近', pinyin: 'zuì jìn', meaning: 'Recently' },
+    { hanzi: '忙', pinyin: 'máng', meaning: 'Busy' },
+    { hanzi: '每', pinyin: 'měi', meaning: 'Every' },
+    { hanzi: '天', pinyin: 'tiān', meaning: 'Day' },
+    { hanzi: '書法', pinyin: 'shū fǎ', meaning: 'Calligraphy' },
+    { hanzi: '課', pinyin: 'kè', meaning: 'Class' },
+    { hanzi: '開始', pinyin: 'kāi shǐ', meaning: 'Start' },
+    { hanzi: '字', pinyin: 'zì', meaning: 'Character' },
+    { hanzi: '寫', pinyin: 'xiě', meaning: 'Write' },
+    { hanzi: '可以', pinyin: 'kě yǐ', meaning: 'Can, may' },
+    { hanzi: '問', pinyin: 'wèn', meaning: 'Ask' },
+    { hanzi: '等一下', pinyin: 'děng yī xià', meaning: 'Wait a moment' },
+    { hanzi: '有事', pinyin: 'yǒu shì', meaning: 'Busy (have something to do)' },
+    { hanzi: '有意思', pinyin: 'yǒu yì si', meaning: 'Interesting' },
+    { hanzi: '坐', pinyin: 'zuò', meaning: 'Sit, take' },
+    { hanzi: '火車', pinyin: 'huǒ chē', meaning: 'Train' },
+    { hanzi: '跟', pinyin: 'gēn', meaning: 'With' },
+    { hanzi: '玩', pinyin: 'wán', meaning: 'Play' },
+    { hanzi: '怎麽', pinyin: 'zěn me', meaning: 'How' },
+    { hanzi: '慢', pinyin: 'màn', meaning: 'Slow' },
+    { hanzi: '鐘頭', pinyin: 'zhōng tóu', meaning: 'Hour' },
+    { hanzi: '比較', pinyin: 'bǐ jiào', meaning: 'Comparison' },
+    { hanzi: '快', pinyin: 'kuài', meaning: 'Fast' },
+    { hanzi: '車票', pinyin: 'chē piào', meaning: 'Train ticket' },
+    { hanzi: '非常', pinyin: 'fēi cháng', meaning: 'Very' },
+    { hanzi: '但是', pinyin: 'dàn shì', meaning: 'But' },
+    { hanzi: '又', pinyin: 'yòu', meaning: 'Again' },
+    { hanzi: '舒服', pinyin: 'shū fu', meaning: 'Comfortable' },
+    { hanzi: '站', pinyin: 'zhàn', meaning: 'Stand' },
+    { hanzi: '或是', pinyin: 'huò shì', meaning: 'Or' },
+    { hanzi: '臺南', pinyin: 'tái nán', meaning: 'Tainan' },
+    { hanzi: '高鐵', pinyin: 'gāo tiě', meaning: 'High-speed rail' },
+    { hanzi: '網路上', pinyin: 'wǎng lù shàng', meaning: 'On the internet' },
+    { hanzi: '便利商店', pinyin: 'biàn lì shāng diàn', meaning: 'Convenience store' },
+    { hanzi: '同學', pinyin: 'tóng xué', meaning: 'Classmate' },
+    { hanzi: '參觀', pinyin: 'cān guān', meaning: 'Visit' },
+    { hanzi: '古代', pinyin: 'gǔ dài', meaning: 'Ancient times' },
+    { hanzi: '騎', pinyin: 'qí', meaning: 'Ride' },
+    { hanzi: '機車', pinyin: 'jī chē', meaning: 'Motorcycle' },
+    { hanzi: '載', pinyin: 'zài', meaning: 'Carry' },
+    { hanzi: '捷運', pinyin: 'jié yùn', meaning: 'MRT, subway' },
+    { hanzi: '比', pinyin: 'bǐ', meaning: 'Compared to' },
+    { hanzi: '故宮博物院', pinyin: 'gù gōng bó wù yuàn', meaning: 'National Palace Museum' },
+    { hanzi: '中國', pinyin: 'zhōng guó', meaning: 'China' },
+    { hanzi: '公共汽車', pinyin: 'gōng gòng qì chē', meaning: 'Bus' },
+    { hanzi: '不行', pinyin: 'bù xíng', meaning: 'Not okay' },
+    { hanzi: '計程車', pinyin: 'jì chéng chē', meaning: 'Taxi' },
+    { hanzi: '差不多', pinyin: 'chà bù duō', meaning: 'Almost' },
+    // Tambahkan kosa kata lainnya sesuai kebutuhan
+  ];
+
+  function createWordBox(word) {
+    const box = document.createElement('div');
+    box.classList.add('word-box');
+    box.textContent = word.hanzi;
+
+    box.addEventListener('click', function () {
+      if (box.textContent === word.hanzi) {
+        box.textContent = `${word.pinyin} - ${word.meaning}`;
+      } else {
+        box.textContent = word.hanzi;
+      }
+    });
+
+    return box;
+  }
+
+  function renderVocabularies() {
+    const vocabContainer = document.body;
+
+    // Membuat kotak untuk setiap kosa kata
+    const wordBoxes = vocabularies.map(createWordBox);
+    wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+
+    // Tombol acak untuk mengacak posisi kosa kata
+    const shuffleButton = document.createElement('button');
+    shuffleButton.textContent = 'Acak';
+    shuffleButton.addEventListener('click', function () {
+      // Mengacak array wordBoxes
+      wordBoxes.sort(() => Math.random() - 0.5);
+      // Menghapus semua kotak dari container
+      vocabContainer.innerHTML = '';
+      // Menambahkan kotak-kotak yang sudah diacak
+      wordBoxes.forEach((box) => vocabContainer.appendChild(box));
+      // Menambahkan kembali tombol "Acak"
+      vocabContainer.appendChild(shuffleButton);
+    });
+
+    vocabContainer.appendChild(shuffleButton);
+  }
+
+  // Menjalankan fungsi renderVocabularies saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', renderVocabularies);
+</script>
+
+</body>
+</html>
